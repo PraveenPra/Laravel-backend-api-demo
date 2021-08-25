@@ -45,11 +45,11 @@ class LoginSignupController extends Controller
         $result= $UserDetails->save();
         if($result){
          // return [$UserDetails];
-            return response()->json(["message" => "Registration completed successfully", "data" => $UserDetails]);
+            return response()->json(["status" => $this->success_status_code, "success" => true, "message" => "Registration completed successfully", "data" => $UserDetails]);
         }
        else{
         //    return "failed to save";
-        return response()->json(["message" => "failed to register"]);
+        return response()->json(["status" => $this->wrong_credentials_status_code, "success" => false, "message" => "failed to register"]);
     }
     }
     
