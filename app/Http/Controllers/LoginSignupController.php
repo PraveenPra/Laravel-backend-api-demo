@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Validator;
 class LoginSignupController extends Controller
 {
     
-    private $status_code = 200;
+    private $success_status_code = 200;
+    private $wrong_credentials_status_code = 401;
     
     public function userSignUp(Request $req){
 
@@ -81,11 +82,11 @@ class LoginSignupController extends Controller
             if(!is_null($password_status)) {
                 $user = $this->userDetail($request->email);
 
-                return response()->json(["status" => $this->status_code, "success" => true, "message" => "You have logged in successfully", "data" => $user]);
+                return response()->json(["status" => $this->success_status_code, "success" => true, "message" => "You have logged in successfully", "data" => $user]);
             }
 
             else {
-                return response()->json(["status" => "failed", "success" => false, "message" => "Unable to login. Incorrect password."]);
+                return response()->json(["status" => $this->wrong_credentials_status_code, "success" => false, "message" => "Unable to login. Incorrect Credentials."]);
             }
         }
 
