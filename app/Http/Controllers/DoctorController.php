@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Hospital;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
 
-class HospitalController extends Controller
+class DoctorController extends Controller
 {
+    //
     public function create(Request $req)
     {
         $validator = Validator::make($req->all(), [
@@ -21,14 +19,14 @@ class HospitalController extends Controller
         return response()->json(["status" => "failed", "message" => "validation_error", "errors" => $validator->errors()]);
         }
         
-        $result= DB::table('hospitals')->insert([
+        $result= DB::table('doctors')->insert([
             'name'=>$req->name,
             'email'=>$req->email,
             'phone'=>$req->phone,
             'address'=>$req->address
         ]);
         if ($result)
-            return response()->json( ["result"=> "added new hospital successfully"]);
+            return response()->json( ["result"=> "added new doctors successfully"]);
         else
             return  response()->json( ["result"=> "error updating"]);
         
@@ -37,8 +35,8 @@ class HospitalController extends Controller
     public function show($id=null)
     {
         //
-        $data=DB::table('hospitals')->get();
-        $dataCount=DB::table('hospitals')->count();
+        $data=DB::table('doctors')->get();
+        $dataCount=DB::table('doctors')->count();
         return ['data'=>$data,"datacount"=>$dataCount];
 
     }
@@ -46,7 +44,7 @@ class HospitalController extends Controller
     public function edit(Request $req,$id)
     {
         dd($id);
-        $data=DB::table('hospitals')->where('id',$id)->update([
+        $data=DB::table('doctors')->where('id',$id)->update([
             'name'=>$req->name,
             'email'=>$req->email,
             'phone'=>$req->phone,
@@ -59,7 +57,7 @@ class HospitalController extends Controller
     public function delete($id)
     {
     
-        $data=DB::table('hospitals')->where('id',$id)->delete();
+        $data=DB::table('doctors')->where('id',$id)->delete();
         if ($result)return ["result"=> "delted successfully"];
         else return ["result"=> "failed to delete"];
           

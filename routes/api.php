@@ -26,7 +26,7 @@ Route::post("login",[LoginSignupController::class,"userLogin"]);
 
 Route::get("user/{email}", [LoginSignupController::class,"userDetail"]);
 
-//route for hospital operations
+//--------[route for hospital operations]----------------------
 Route::post("addhospital",[HospitalController::class,"create"]);
 
 Route::get("showhospital",[HospitalController::class,"show"]);
@@ -34,3 +34,12 @@ Route::get("showhospital",[HospitalController::class,"show"]);
 Route::put("edithospital/{id}",[HospitalController::class,"edit"]);
 
 Route::delete("deletehospital/{id}",[HospitalController::class,"delete"]);
+
+//--------[route for doctor operations]----------------------
+Route::post("adddoctor",[DoctorController::class,"create"]);
+
+Route::get("showdoctor",[DoctorController::class,"show"]);
+
+Route::put("editdoctor/{id}",[DoctorController::class,"edit"]);
+
+Route::delete("deletedoctor/{id}",[DoctorController::class,"delete"]);
