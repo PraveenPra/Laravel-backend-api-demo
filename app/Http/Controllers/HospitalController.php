@@ -45,7 +45,7 @@ class HospitalController extends Controller
 
     public function edit(Request $req,$id)
     {
-        dd($id);
+        
         $data=DB::table('hospitals')->where('id',$id)->update([
             'name'=>$req->name,
             'email'=>$req->email,
@@ -59,9 +59,9 @@ class HospitalController extends Controller
     public function delete($id)
     {
     
-        $data=DB::table('hospitals')->where('id',$id)->delete();
-        if ($result)return ["result"=> "delted successfully"];
-        else return ["result"=> "failed to delete"];
+        $result=DB::table('hospitals')->where('id',$id)->delete();
+       
+        return ["result"=> "failed to delete"];
           
     }
 }
