@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CorporateSeeder::class,
             DonorSeeder::class,
             ClubSeeder::class,
+           HospitalSeeder::class,
         ]);
     }
 }
