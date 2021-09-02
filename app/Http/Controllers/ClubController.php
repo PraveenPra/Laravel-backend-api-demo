@@ -35,12 +35,22 @@ class ClubController extends Controller
         
     }
 
-    public function show($id=null)
+    public function show()
     {
         //
         $data=DB::table('clubs')->get();
         $dataCount=DB::table('clubs')->count();
         return ['data'=>$data,"datacount"=>$dataCount];
+
+    }
+
+    
+    public function showid($id)
+    {
+        //
+        $data=DB::table('clubs')->find($id);
+       
+        return ['data'=>$data];
 
     }
 

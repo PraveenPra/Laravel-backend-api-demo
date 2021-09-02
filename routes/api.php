@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginSignupController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\CorporateController;
+use App\Http\Controllers\Corporate\CorporateController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -76,6 +76,7 @@ Route::delete("deletedonor/{id}",[DonorController::class,"delete"]);
 Route::post("addclub",[ClubController::class,"create"]);
 
 Route::get("showclub",[ClubController::class,"show"]);
+Route::get("showclub/{id}",[ClubController::class,"showid"]);
 
 Route::put("editclub/{id}",[ClubController::class,"edit"]);
 
