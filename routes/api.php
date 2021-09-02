@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginSignupController;
 use App\Http\Controllers\Hospitals\HospitalController;
 use App\Http\Controllers\Doctors\DoctorController;
-use App\Http\Controllers\Corporates\CorporateController;
-use App\Http\Controllers\Donors\DonorController;
-use App\Http\Controllers\Clubs\ClubController;
+use App\Http\Controllers\CorporateController;
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\ClubController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 /*
