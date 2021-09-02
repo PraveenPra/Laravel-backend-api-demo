@@ -3,11 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginSignupController;
-use App\Http\Controllers\HospitalController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\CorporateController;
-use App\Http\Controllers\DonorController;
-use App\Http\Controllers\ClubController;
+use App\Http\Controllers\Hospitals\HospitalController;
+use App\Http\Controllers\Doctors\DoctorController;
+use App\Http\Controllers\Corporates\CorporateController;
+use App\Http\Controllers\Donors\DonorController;
+use App\Http\Controllers\Clubs\ClubController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::post("signup",[LoginSignupController::class,"userSignUp"]);
 Route::post("login",[LoginSignupController::class,"userLogin"]);
 
 Route::get("user/{email}", [LoginSignupController::class,"userDetail"]);
+
+//--------[route for table count]----------------------
+
+Route::get("counts", [AdminDashboardController::class,"counts"]);
 
 //--------[route for hospital operations]----------------------
 Route::post("addhospital",[HospitalController::class,"create"]);
