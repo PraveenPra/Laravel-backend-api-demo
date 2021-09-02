@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginSignupController;
-use App\Http\Controllers\Hospitals\HospitalController;
-use App\Http\Controllers\Doctors\DoctorController;
+use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CorporateController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\ClubController;
