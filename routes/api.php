@@ -40,6 +40,7 @@ Route::get("counts", [AdminDashboardController::class,"counts"]);
 Route::post("addhospital",[HospitalController::class,"create"]);
 
 Route::get("showhospital",[HospitalController::class,"show"]);
+Route::get("showhospital/{id}",[HospitalController::class,"showid"]);
 
 Route::put("edithospital/{id}",[HospitalController::class,"edit"]);
 
@@ -78,6 +79,6 @@ Route::post("addclub",[ClubController::class,"create"]);
 Route::get("showclub",[ClubController::class,"show"]);
 Route::get("showclub/{id}",[ClubController::class,"showid"]);
 
-Route::put("editclub/{id}",[ClubController::class,"edit"]);
+Route::post("editclub/{id}",[ClubController::class,"edit"]);
 
-Route::delete("deleteclub/{id}",[ClubController::class,"delete"]);
+Route::post("deleteclub/{id}",[ClubController::class,"delete"]);

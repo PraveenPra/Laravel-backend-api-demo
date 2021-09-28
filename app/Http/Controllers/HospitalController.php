@@ -34,7 +34,7 @@ class HospitalController extends Controller
         
     }
 
-    public function show($id=null)
+    public function show()
     {
         //
         $data=DB::table('hospitals')->get();
@@ -43,9 +43,18 @@ class HospitalController extends Controller
 
     }
 
+    public function showid($id)
+    {
+        //
+        $data=DB::table('hospitals')->find($id);
+       
+        return ['data'=>$data];
+
+    }
+
     public function edit(Request $req,$id)
     {
-        
+       
         $data=DB::table('hospitals')->where('id',$id)->update([
             'name'=>$req->name,
             'email'=>$req->email,
